@@ -30,20 +30,16 @@ export default function Page() {
   }, [duration]);
 
   return (
-    <div>
-      <h1>GitHub Trending Repositories</h1>
-      <SpanDuration value={duration} onChange={setDuration} />
+    <div className="container mx-auto p-8">
+      <h1 className="text-3xl font-bold mb-6">GitHub Trending Repositories</h1>
+      <div className="mb-6">
+        <SpanDuration value={duration} onChange={setDuration} />
+      </div>
       
-      {loading && <div>Loading...</div>}
-      {error && <div>Error: {error}</div>}
+      {loading && <div className="text-center py-8">Loading...</div>}
+      {error && <div className="text-red-600 text-center py-8">Error: {error}</div>}
       
-      {!loading && !error && (
-        <div>
-          {repos.map((repo) => (
-            <RepoTable key={repo.id} repo={repo} />
-          ))}
-        </div>
-      )}
+      {!loading && !error && <RepoTable repos={repos} />}
     </div>
   );
 }
