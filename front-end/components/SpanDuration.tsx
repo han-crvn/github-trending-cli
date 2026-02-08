@@ -8,12 +8,30 @@ interface DurationSelectorProps {
 const SpanDuration = ({ value, onChange }: DurationSelectorProps) => {
   return (
     <div>
-      <select value={value} onChange={(e) => onChange(e.target.value)}>
-        <option value="day">Day</option>
-        <option value="week">Week</option>
-        <option value="month">Month</option>
-        <option value="year">Year</option>
-      </select>
+      <button 
+        onClick={() => onChange('day')}
+        disabled={value === 'day'}
+      >
+        Day
+      </button>
+      <button 
+        onClick={() => onChange('week')}
+        disabled={value === 'week'}
+      >
+        Week
+      </button>
+      <button 
+        onClick={() => onChange('month')}
+        disabled={value === 'month'}
+      >
+        Month
+      </button>
+      <button 
+        onClick={() => onChange('year')}
+        disabled={value === 'year'}
+      >
+        Year
+      </button>
     </div>
   )
 }
