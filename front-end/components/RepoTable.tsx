@@ -11,6 +11,8 @@ const RepoTable = ({ repo }: RepoTableProps) => {
       <h3>{repo.name}</h3>
       <p>{repo.description}</p>
       <span>⭐ {repo.stargazers_count}</span>
+      <span>🍴 {repo.forks_count}</span>
+      <span>{repo.language}</span>
       <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
         View on GitHub
       </a>
